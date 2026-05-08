@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Баня — Настоящий пар, настоящий отдых</title>
+  <meta name="description" content="Частная баня. Каталог услуг, бронирование онлайн, контакты." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wood: '#8B4513',
+            ember: '#c2410c',
+            steam: '#f5f0eb',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- ===== ШАПКА ===== -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <!-- Логотип -->
+      <a href="#hero" class="font-serif text-2xl text-wood font-bold tracking-wide">
+        🔥 Банька
+      </a>
+
+      <!-- Навигация — десктоп -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#services" class="nav-link text-gray-600 hover:text-ember font-medium transition-colors">Услуги</a>
+        <a href="#booking" class="nav-link text-gray-600 hover:text-ember font-medium transition-colors">Бронирование</a>
+        <a href="#about" class="nav-link text-gray-600 hover:text-ember font-medium transition-colors">О нас</a>
+        <a href="#contacts" class="nav-link text-gray-600 hover:text-ember font-medium transition-colors">Контакты</a>
+        <a href="#booking" class="bg-ember text-white px-5 py-2 rounded-lg font-medium hover:bg-orange-700 transition-colors">
+          Забронировать
+        </a>
+      </nav>
+
+      <!-- Кнопка мобильного меню -->
+      <button id="menu-btn" class="md:hidden p-2 text-gray-600 hover:text-ember transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white px-4 py-4 flex flex-col gap-4">
+      <a href="#services" class="text-gray-600 hover:text-ember font-medium transition-colors">Услуги</a>
+      <a href="#booking" class="text-gray-600 hover:text-ember font-medium transition-colors">Бронирование</a>
+      <a href="#about" class="text-gray-600 hover:text-ember font-medium transition-colors">О нас</a>
+      <a href="#contacts" class="text-gray-600 hover:text-ember font-medium transition-colors">Контакты</a>
+      <a href="#booking" class="bg-ember text-white px-5 py-2 rounded-lg font-medium text-center hover:bg-orange-700 transition-colors">
+        Забронировать
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+    <!-- Фоновое фото (замени на своё) -->
+    <div class="absolute inset-0 bg-gradient-to-br from-stone-800 via-wood to-stone-900 hero-overlay"></div>
+    <!-- После добавления фото раскомментируй:
+    <img src="assets/images/hero.jpg" alt="Баня" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 hero-overlay"></div>
+    -->
+
+    <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
+      <p class="text-orange-300 text-sm font-semibold uppercase tracking-widest mb-4">Частная баня</p>
+      <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        Настоящий пар.<br />Настоящий отдых.
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-xl mx-auto">
+        Традиционная русская баня для вас и компании. Живой огонь, берёзовые веники, чистый пар.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#booking" class="bg-ember hover:bg-orange-700 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-colors">
+          Забронировать
+        </a>
+        <a href="#services" class="border-2 border-white text-white hover:bg-white hover:text-gray-800 font-semibold px-8 py-4 rounded-xl text-lg transition-colors">
+          Наши услуги
+        </a>
+      </div>
+    </div>
+
+    <!-- Стрелка вниз -->
+    <a href="#services" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white opacity-70 hover:opacity-100 transition-opacity animate-bounce">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </a>
+  </section>
+
+  <!-- ===== УСЛУГИ ===== -->
+  <section id="services" class="py-24 bg-steam">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <p class="text-ember text-sm font-semibold uppercase tracking-widest mb-3">Что мы предлагаем</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-800 mb-4">Каталог услуг</h2>
+        <p class="text-gray-500 max-w-xl mx-auto text-lg">Выбери подходящий формат — от быстрого отдыха до целого дня в бане</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Карточка 1 -->
+        <div class="service-card bg-white rounded-2xl p-8 shadow-md fade-in">
+          <div class="text-4xl mb-4">🌿</div>
+          <h3 class="font-serif text-2xl font-bold text-gray-800 mb-3">Классика</h3>
+          <p class="text-gray-500 mb-6">Классическая русская баня с берёзовым веником. До 4 человек, 3 часа.</p>
+          <ul class="text-gray-600 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-ember">✓</span> Топка печи</li>
+            <li class="flex items-center gap-2"><span class="text-ember">✓</span> Веники (берёза)</li>
+            <li class="flex items-center gap-2"><span class="text-ember">✓</span> Чайник и травяной чай</li>
+            <li class="flex items-center gap-2"><span class="text-ember">✓</span> Полотенца</li>
+          </ul>
+          <div class="flex items-end justify-between">
+            <div>
+              <span class="text-3xl font-bold text-ember">3 500 ₽</span>
+              <span class="text-gray-400 text-sm"> / сеанс</span>
+            </div>
+            <a href="#booking" class="bg-ember text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-700 transition-colors">
+              Забронировать
+            </a>
+          </div>
+        </div>
+
+        <!-- Карточка 2 (выделенная) -->
+        <div class="service-card bg-wood rounded-2xl p-8 shadow-xl text-white fade-in relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-ember text-white text-xs font-semibold px-4 py-1 rounded-full uppercase tracking-wide">
+            Популярное
+          </div>
+          <div class="text-4xl mb-4">🔥</div>
+          <h3 class="font-serif text-2xl font-bold mb-3">Банный день</h3>
+          <p class="text-orange-200 mb-6">Целый день в бане без ограничений по времени. До 6 человек.</p>
+          <ul class="text-orange-100 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-orange-300">✓</span> Вся баня в распоряжении</li>
+            <li class="flex items-center gap-2"><span class="text-orange-300">✓</span> Веники (на выбор)</li>
+            <li class="flex items-center gap-2"><span class="text-orange-300">✓</span> Мангал и зона барбекю</li>
+            <li class="flex items-center gap-2"><span class="text-orange-300">✓</span> Чай, квас, снеки</li>
+            <li class="flex items-center gap-2"><span class="text-orange-300">✓</span> Купель с холодной водой</li>
+          </ul>
+          <div class="flex items-end justify-between">
+            <div>
+              <span class="text-3xl font-bold">8 500 ₽</span>
+              <span class="text-orange-200 text-sm"> / день</span>
+            </div>
+            <a href="#booking" class="bg-white text-wood px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-100 transition-colors">
+              Забронировать
+            </a>
+          </div>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div class="service-card bg-white rounded-2xl p-8 shadow-md fade-in">
+          <div class="text-4xl mb-4">🎉</div>
+          <h3 class="font-serif text-2xl font-bold text-gray-800 mb-3">Корпоратив</h3>
+          <p class="text-gray-500 mb-6">Баня для большой компании. До 12 человек, весь вечер.</p>
+          <ul class="text-gray-600 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-ember">✓</span> Вся территория</li>
+            <li class="flex items-center gap-2"><span class="text-ember">✓</span> Банщик в подарок</li>
+            <li class="flex items-center gap-2"><span class="text-ember">✓</span> Мангал и беседка</li>
+            <li class="flex items-center gap-2"><span class="text-ember">✓</span> Музыка и декор</li>
+          </ul>
+          <div class="flex items-end justify-between">
+            <div>
+              <span class="text-3xl font-bold text-ember">По запросу</span>
+            </div>
+            <a href="#booking" class="bg-ember text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-700 transition-colors">
+              Запросить
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="fade-in">
+          <div class="text-5xl mb-3">🌲</div>
+          <h4 class="font-serif text-xl font-bold text-gray-800 mb-2">Живой огонь</h4>
+          <p class="text-gray-500 text-sm">Топим только дровами — никакого электричества</p>
+        </div>
+        <div class="fade-in">
+          <div class="text-5xl mb-3">💧</div>
+          <h4 class="font-serif text-xl font-bold text-gray-800 mb-2">Чистая вода</h4>
+          <p class="text-gray-500 text-sm">Скважина с родниковой водой прямо на участке</p>
+        </div>
+        <div class="fade-in">
+          <div class="text-5xl mb-3">🤝</div>
+          <h4 class="font-serif text-xl font-bold text-gray-800 mb-2">Только для вас</h4>
+          <p class="text-gray-500 text-sm">Частная аренда — никаких посторонних</p>
+        </div>
+        <div class="fade-in">
+          <div class="text-5xl mb-3">🏕️</div>
+          <h4 class="font-serif text-xl font-bold text-gray-800 mb-2">Природа рядом</h4>
+          <p class="text-gray-500 text-sm">Лес, тишина, свежий воздух вокруг</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БРОНИРОВАНИЕ ===== -->
+  <section id="booking" class="py-24 bg-stone-900 text-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12 fade-in">
+        <p class="text-orange-400 text-sm font-semibold uppercase tracking-widest mb-3">Записаться</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">Забронировать баню</h2>
+        <p class="text-gray-400 text-lg">Оставь заявку — свяжемся в течение часа и подтвердим дату</p>
+      </div>
+
+      <!-- Замени your@email.com на свой email -->
+      <form action="https://formsubmit.co/your@email.com" method="POST" class="space-y-5 fade-in">
+        <!-- FormSubmit: скрытые поля -->
+        <input type="hidden" name="_subject" value="Новая заявка на бронирование бани" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Имя *</label>
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="Ваше имя"
+              class="w-full bg-stone-800 border border-stone-700 text-white rounded-xl px-4 py-3 placeholder-gray-500 transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Телефон *</label>
+            <input
+              type="tel"
+              name="phone"
+              required
+              placeholder="+7 (999) 000-00-00"
+              class="w-full bg-stone-800 border border-stone-700 text-white rounded-xl px-4 py-3 placeholder-gray-500 transition-colors"
+            />
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Желаемая дата *</label>
+            <input
+              type="date"
+              name="date"
+              required
+              class="w-full bg-stone-800 border border-stone-700 text-white rounded-xl px-4 py-3 transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Количество человек</label>
+            <select
+              name="guests"
+              class="w-full bg-stone-800 border border-stone-700 text-white rounded-xl px-4 py-3 transition-colors"
+            >
+              <option value="1-2">1-2 человека</option>
+              <option value="3-4">3-4 человека</option>
+              <option value="5-6">5-6 человек</option>
+              <option value="7+">7 и больше</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-2">Пакет услуг</label>
+          <select
+            name="package"
+            class="w-full bg-stone-800 border border-stone-700 text-white rounded-xl px-4 py-3 transition-colors"
+          >
+            <option value="Классика (3 500 ₽)">Классика — 3 500 ₽</option>
+            <option value="Банный день (8 500 ₽)">Банный день — 8 500 ₽</option>
+            <option value="Корпоратив (по запросу)">Корпоратив — по запросу</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-2">Пожелания</label>
+          <textarea
+            name="message"
+            rows="3"
+            placeholder="Особые пожелания, вопросы..."
+            class="w-full bg-stone-800 border border-stone-700 text-white rounded-xl px-4 py-3 placeholder-gray-500 transition-colors resize-none"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-ember hover:bg-orange-700 text-white font-semibold py-4 rounded-xl text-lg transition-colors"
+        >
+          Отправить заявку
+        </button>
+
+        <p class="text-center text-gray-500 text-sm">
+          Или позвоните нам: <a href="tel:+79990000000" class="text-orange-400 hover:text-orange-300">+7 (999) 000-00-00</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== О НАС ===== -->
+  <section id="about" class="py-24 bg-steam">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <!-- Текст -->
+        <div class="fade-in">
+          <p class="text-ember text-sm font-semibold uppercase tracking-widest mb-3">Наша история</p>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-800 mb-6">О создателях</h2>
+          <p class="text-gray-600 text-lg mb-5 leading-relaxed">
+            Мы — семья Петровых, которая уже 15 лет держит традицию живой бани. Всё началось с деревянной парной, которую дед построил своими руками ещё в 1990-х.
+          </p>
+          <p class="text-gray-600 text-lg mb-5 leading-relaxed">
+            Баня для нас — это не просто услуга. Это место где можно выдохнуть, поговорить по-настоящему и выйти обновлённым. Мы топим её каждую неделю и приглашаем вас разделить этот ритуал.
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Все веники заготавливаем сами в сезон. Дрова — берёза и ольха из собственного леса.
+          </p>
+        </div>
+
+        <!-- Карточки с командой -->
+        <div class="grid grid-cols-2 gap-6 fade-in">
+          <div class="bg-white rounded-2xl p-6 shadow-md text-center">
+            <!-- Замени на фото -->
+            <div class="w-20 h-20 bg-stone-200 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl">👨</div>
+            <h4 class="font-serif text-lg font-bold text-gray-800">Иван</h4>
+            <p class="text-gray-500 text-sm">Банщик и хозяин</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md text-center">
+            <div class="w-20 h-20 bg-stone-200 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl">👩</div>
+            <h4 class="font-serif text-lg font-bold text-gray-800">Мария</h4>
+            <p class="text-gray-500 text-sm">Угощения и уют</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md text-center col-span-2">
+            <div class="text-4xl mb-3">❤️</div>
+            <p class="text-gray-600 text-sm italic">"Баня лечит тело, парная — душу"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== КОНТАКТЫ ===== -->
+  <section id="contacts" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <p class="text-ember text-sm font-semibold uppercase tracking-widest mb-3">Как нас найти</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-800 mb-4">Контакты</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="text-center fade-in">
+          <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">📞</div>
+          <h4 class="font-semibold text-gray-800 mb-2">Телефон</h4>
+          <a href="tel:+79990000000" class="text-ember hover:text-orange-700 font-medium transition-colors">
+            +7 (999) 000-00-00
+          </a>
+          <p class="text-gray-500 text-sm mt-1">Ежедневно 9:00 – 21:00</p>
+        </div>
+
+        <div class="text-center fade-in">
+          <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">📍</div>
+          <h4 class="font-semibold text-gray-800 mb-2">Адрес</h4>
+          <p class="text-gray-600">Московская область,<br />деревня Берёзовка, д. 5</p>
+        </div>
+
+        <div class="text-center fade-in">
+          <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">💬</div>
+          <h4 class="font-semibold text-gray-800 mb-2">Мессенджеры</h4>
+          <div class="flex justify-center gap-4 mt-2">
+            <a href="https://t.me/username" class="text-gray-500 hover:text-ember transition-colors font-medium">Telegram</a>
+            <a href="https://wa.me/79990000000" class="text-gray-500 hover:text-ember transition-colors font-medium">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карта (заглушка — замени на реальный iframe от Яндекс.Карт или Google Maps) -->
+      <div class="bg-stone-100 rounded-2xl h-72 flex items-center justify-center text-gray-400 fade-in">
+        <div class="text-center">
+          <div class="text-5xl mb-3">🗺️</div>
+          <p class="font-medium">Здесь будет карта</p>
+          <p class="text-sm mt-1">Вставь iframe от Яндекс.Карт или Google Maps</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПОДВАЛ ===== -->
+  <footer class="bg-stone-900 text-gray-400 py-10">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="#hero" class="font-serif text-2xl text-white font-bold mb-4 block">🔥 Банька</a>
+      <nav class="flex flex-wrap justify-center gap-6 mb-6">
+        <a href="#services" class="hover:text-white transition-colors">Услуги</a>
+        <a href="#booking" class="hover:text-white transition-colors">Бронирование</a>
+        <a href="#about" class="hover:text-white transition-colors">О нас</a>
+        <a href="#contacts" class="hover:text-white transition-colors">Контакты</a>
+      </nav>
+      <p class="text-sm">© 2025 Банька. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- Кнопка "Наверх" -->
+  <button
+    id="scroll-top"
+    style="opacity: 0; visibility: hidden;"
+    class="fixed bottom-8 right-8 w-12 h-12 bg-ember text-white rounded-full shadow-lg flex items-center justify-center hover:bg-orange-700 transition-colors z-50"
+    aria-label="Наверх"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- Скрипты -->
+  <script src="js/main.js"></script>
+</body>
+</html>
