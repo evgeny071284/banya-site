@@ -134,6 +134,117 @@
         margin-bottom: 8px;
       }
     }
+
+    /* ══════════════════════════════════════
+       АДАПТИВНОСТЬ — мобильные устройства
+    ══════════════════════════════════════ */
+    @media (max-width: 767px) {
+
+      /* Шапка */
+      .header-inner {
+        padding: 0 20px !important;
+        gap: 12px !important;
+      }
+
+      /* Герой */
+      .hero-content { padding: 40px 20px 32px !important; }
+      .hero-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+      #hero h1 { font-size: clamp(38px, 9vw, 56px) !important; margin-bottom: 24px !important; }
+      .hero-stats { gap: 24px !important; flex-wrap: wrap !important; }
+      .hero-image { margin: 0 !important; height: 240px !important; }
+
+      /* Программы */
+      #programs { padding: 64px 20px !important; }
+      .programs-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        margin-bottom: 36px !important;
+      }
+      .programs-header p { text-align: left !important; white-space: normal !important; }
+      .programs-grid { grid-template-columns: 1fr !important; }
+      .program-card {
+        padding: 40px 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--color-stone) !important;
+      }
+      .program-card:last-child { border-bottom: none !important; }
+
+      /* Заголовки h2 во всех секциях */
+      #programs h2,
+      #about h2,
+      #additional h2,
+      #booking h2 { font-size: clamp(32px, 8vw, 48px) !important; }
+
+      /* Как проходит парение — 6 шагов → 2 колонки */
+      #about { padding: 64px 20px !important; }
+      .steps-intro {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        margin-bottom: 40px !important;
+      }
+      .steps-grid { grid-template-columns: 1fr 1fr !important; }
+      .step {
+        padding: 28px 16px 28px 0 !important;
+        border-right: 1px solid var(--color-charcoal) !important;
+        border-bottom: 1px solid var(--color-charcoal) !important;
+      }
+      .step:nth-child(even) {
+        padding: 28px 0 28px 16px !important;
+        border-right: none !important;
+      }
+      .step:nth-last-child(-n+2) { border-bottom: none !important; }
+
+      /* Дополнительно */
+      #additional { padding: 64px 20px !important; }
+      .additional-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        margin-bottom: 36px !important;
+      }
+      .additional-header p { text-align: left !important; }
+      .additional-grid { grid-template-columns: 1fr !important; }
+      .additional-card {
+        padding: 40px 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--color-stone) !important;
+      }
+      .additional-card:last-child { border-bottom: none !important; }
+
+      /* Мастер — цитата */
+      #masters { padding: 64px 20px !important; }
+      .masters-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+      .masters-photo { aspect-ratio: 3/2 !important; }
+
+      /* Запись — форма */
+      #booking { padding: 64px 20px !important; }
+      .booking-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+      .form-row { grid-template-columns: 1fr !important; }
+
+      /* Кнопка отправки формы */
+      #booking-form button[type="submit"] { min-height: 52px !important; }
+
+      /* Футер */
+      #contacts { padding: 48px 20px 32px !important; }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 36px !important;
+        margin-bottom: 48px !important;
+      }
+      .footer-bottom {
+        flex-direction: column !important;
+        gap: 6px !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+    }
+
+    @media (max-width: 479px) {
+      .footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+      .hero-stats { gap: 20px !important; }
+      .masters-photo { aspect-ratio: 16/9 !important; }
+    }
   </style>
 </head>
 <body>
@@ -142,7 +253,7 @@
      HEADER
 ════════════════════════════════════════════ -->
 <header id="header" style="position:fixed;top:0;left:0;right:0;z-index:50;background:var(--color-dark);border-bottom:1px solid var(--color-stone);transition:box-shadow 0.3s;">
-  <div style="max-width:1280px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:40px;">
+  <div class="header-inner" style="max-width:1280px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:40px;">
 
     <!-- Логотип -->
     <a href="#hero" style="text-decoration:none;flex-shrink:0;">
@@ -161,28 +272,28 @@
 
     <!-- Правая часть -->
     <div style="display:flex;align-items:center;gap:24px;flex-shrink:0;">
-      <a href="tel:+73452000000" style="font-size:13px;letter-spacing:0.3px;color:var(--color-charcoal);text-decoration:none;" class="hidden-mobile">+7 (3452) 00-00-00</a>
+      <a href="tel:+79923193999" style="font-size:13px;letter-spacing:0.3px;color:var(--color-charcoal);text-decoration:none;" class="hidden-mobile">8 (992) 319-39-99</a>
       <a href="#booking" style="font-size:11px;letter-spacing:1.8px;text-transform:uppercase;font-weight:500;color:var(--color-cream);background:var(--color-amber);padding:10px 22px;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Записаться</a>
       <!-- Бургер мобильный -->
       <button id="menu-btn" style="display:none;background:none;border:none;cursor:pointer;padding:4px;" aria-label="Меню">
         <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
-          <line x1="0" y1="1" x2="22" y2="1" stroke="var(--color-dark)" stroke-width="1.5"/>
-          <line x1="0" y1="8" x2="22" y2="8" stroke="var(--color-dark)" stroke-width="1.5"/>
-          <line x1="0" y1="15" x2="22" y2="15" stroke="var(--color-dark)" stroke-width="1.5"/>
+          <line x1="0" y1="1" x2="22" y2="1" stroke="var(--color-cream)" stroke-width="1.5"/>
+          <line x1="0" y1="8" x2="22" y2="8" stroke="var(--color-cream)" stroke-width="1.5"/>
+          <line x1="0" y1="15" x2="22" y2="15" stroke="var(--color-cream)" stroke-width="1.5"/>
         </svg>
       </button>
     </div>
   </div>
 
   <!-- Мобильное меню -->
-  <div id="mobile-menu" style="display:none;border-top:1px solid var(--color-stone);background:var(--color-dark);padding:20px 40px 24px;">
+  <div id="mobile-menu" style="display:none;border-top:1px solid var(--color-stone);background:var(--color-dark);padding:20px 20px 24px;">
     <div style="display:flex;flex-direction:column;gap:16px;">
       <a href="#programs"   class="nav-link" onclick="closeMobileMenu()">Программы</a>
       <a href="#about"      class="nav-link" onclick="closeMobileMenu()">О нас</a>
       <a href="#masters"    class="nav-link" onclick="closeMobileMenu()">Парильщики</a>
       <a href="#booking"    class="nav-link" onclick="closeMobileMenu()">Запись</a>
       <a href="#contacts"   class="nav-link" onclick="closeMobileMenu()">Контакты</a>
-      <a href="tel:+73452000000" style="font-size:14px;color:var(--color-charcoal);text-decoration:none;margin-top:4px;">+7 (3452) 00-00-00</a>
+      <a href="tel:+79923193999" style="font-size:14px;color:var(--color-charcoal);text-decoration:none;margin-top:4px;">8 (992) 319-39-99</a>
     </div>
   </div>
 </header>
@@ -192,11 +303,11 @@
      01 · HERO
 ════════════════════════════════════════════ -->
 <section id="hero" style="padding-top:64px;background:var(--color-dark);">
-  <div style="max-width:1280px;margin:0 auto;padding:72px 40px 56px;">
+  <div class="hero-content" style="max-width:1280px;margin:0 auto;padding:72px 40px 56px;">
 
     <div class="label" style="margin-bottom:52px;">01 · Приветствие</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;">
+    <div class="hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;">
 
       <!-- Заголовок -->
       <div>
@@ -213,7 +324,7 @@
         </p>
 
         <!-- Статистика -->
-        <div style="display:flex;gap:48px;border-top:1px solid var(--color-stone);padding-top:36px;">
+        <div class="hero-stats" style="display:flex;gap:48px;border-top:1px solid var(--color-stone);padding-top:36px;">
           <div>
             <div class="font-serif" style="font-size:52px;font-weight:400;line-height:1;color:var(--color-amber);">11</div>
             <div class="label" style="margin-top:8px;">лет практики</div>
@@ -232,8 +343,8 @@
   </div>
 
   <!-- Широкое фото -->
-  <div class="photo-placeholder" style="margin:0 40px 0;height:480px;background:var(--color-stone);">
-    <span>Широкое фото · парильщик с веником в облаке пара</span>
+  <div class="hero-image" style="margin:0 40px 0;height:480px;overflow:hidden;">
+    <img src="assets/images/IMG_20260511_081147.png" alt="Парная — деревянные полки в облаке пара" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
   </div>
 </section>
 
@@ -246,7 +357,7 @@
 
     <div class="label" style="margin-bottom:44px;">02 · Программы</div>
 
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;">
+    <div class="programs-header" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;">
       <h2 class="font-serif" style="font-size:clamp(44px,5.5vw,76px);font-weight:400;margin:0;line-height:1.05;color:var(--color-cream);">
         Три формата<br>под три задачи.
       </h2>
@@ -254,13 +365,13 @@
     </div>
 
     <!-- Три колонки -->
-    <div style="border-top:1px solid var(--color-stone);display:grid;grid-template-columns:1fr 1fr 1fr;">
+    <div class="programs-grid" style="border-top:1px solid var(--color-stone);display:grid;grid-template-columns:1fr 1fr 1fr;">
 
       <!-- I — Семейная -->
-      <div style="padding:44px 44px 44px 0;border-right:1px solid var(--color-stone);">
+      <div class="program-card" style="padding:44px 44px 44px 0;border-right:1px solid var(--color-stone);">
         <div class="label" style="margin-bottom:24px;">Программа · I</div>
-        <div class="photo-placeholder" style="height:200px;margin-bottom:32px;">
-          <span>фото</span>
+        <div style="height:200px;margin-bottom:32px;overflow:hidden;">
+          <img src="assets/images/IMG_20260511_081124.png" alt="Уютная гостевая комната" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 14px;color:var(--color-cream);">Семейная</h3>
         <p style="font-size:14px;line-height:1.75;color:var(--color-charcoal);margin:0 0 36px;">Мягкий пар, парение по очереди, чай у самовара. До&nbsp;4&nbsp;человек.</p>
@@ -271,10 +382,10 @@
       </div>
 
       <!-- II — Женский прогрев -->
-      <div style="padding:44px;border-right:1px solid var(--color-stone);background:var(--color-warm);">
+      <div class="program-card" style="padding:44px;border-right:1px solid var(--color-stone);background:var(--color-warm);">
         <div class="label" style="margin-bottom:24px;">Программа · II</div>
-        <div class="photo-placeholder" style="height:200px;margin-bottom:32px;background:var(--color-stone);">
-          <span>фото</span>
+        <div style="height:200px;margin-bottom:32px;overflow:hidden;">
+          <img src="assets/images/IMG_20260511_081141.png" alt="Комната для женского прогрева" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 14px;color:var(--color-cream);">Женский прогрев</h3>
         <p style="font-size:14px;line-height:1.75;color:var(--color-charcoal);margin:0 0 36px;">Тёплый комфортный режим, травяные настои, скрабы и обвертывания.</p>
@@ -285,10 +396,10 @@
       </div>
 
       <!-- III — Спорт -->
-      <div style="padding:44px 0 44px 44px;">
+      <div class="program-card" style="padding:44px 0 44px 44px;">
         <div class="label" style="margin-bottom:24px;">Программа · III</div>
-        <div class="photo-placeholder" style="height:200px;margin-bottom:32px;">
-          <span>фото</span>
+        <div style="height:200px;margin-bottom:32px;overflow:hidden;">
+          <img src="assets/images/IMG_20260511_081115.png" alt="Купель с ледяной водой" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
         </div>
         <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 14px;color:var(--color-cream);">Спорт-восстановление</h3>
         <p style="font-size:14px;line-height:1.75;color:var(--color-charcoal);margin:0 0 36px;">Контрастный режим, проработка мышц, ледяная купель.</p>
@@ -311,7 +422,7 @@
 
     <div class="label-light" style="margin-bottom:44px;">03 · Как проходит парение</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:72px;">
+    <div class="steps-intro" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:72px;">
       <h2 class="font-serif" style="font-size:clamp(44px,5.5vw,76px);font-weight:400;margin:0;line-height:1.05;color:var(--color-cream);">
         Шесть шагов<br>хорошего пара.
       </h2>
@@ -319,39 +430,39 @@
     </div>
 
     <!-- 6 шагов -->
-    <div style="display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--color-charcoal);">
+    <div class="steps-grid" style="display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--color-charcoal);">
 
-      <div style="padding:32px 24px 32px 0;border-right:1px solid var(--color-charcoal);">
+      <div class="step" style="padding:32px 24px 32px 0;border-right:1px solid var(--color-charcoal);">
         <div class="label-light" style="margin-bottom:18px;">Шаг 01</div>
         <div class="font-serif" style="font-size:22px;font-weight:400;color:var(--color-cream);margin-bottom:10px;">Встреча</div>
         <p style="font-size:13px;line-height:1.65;color:var(--color-muted);margin:0;">Знакомство, чай, обсуждаем самочувствие</p>
       </div>
 
-      <div style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
+      <div class="step" style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
         <div class="label-light" style="margin-bottom:18px;">Шаг 02</div>
         <div class="font-serif" style="font-size:22px;font-weight:400;color:var(--color-cream);margin-bottom:10px;">Прогрев</div>
         <p style="font-size:13px;line-height:1.65;color:var(--color-muted);margin:0;">Мягкий заход, привыкаем к теплу</p>
       </div>
 
-      <div style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
+      <div class="step" style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
         <div class="label-light" style="margin-bottom:18px;">Шаг 03</div>
         <div class="font-serif" style="font-size:22px;font-weight:400;color:var(--color-cream);margin-bottom:10px;">Первый веник</div>
         <p style="font-size:13px;line-height:1.65;color:var(--color-muted);margin:0;">Берёзовый — для расслабления мышц</p>
       </div>
 
-      <div style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
+      <div class="step" style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
         <div class="label-light" style="margin-bottom:18px;">Шаг 04</div>
         <div class="font-serif" style="font-size:22px;font-weight:400;color:var(--color-cream);margin-bottom:10px;">Купель</div>
         <p style="font-size:13px;line-height:1.65;color:var(--color-muted);margin:0;">Контраст 4°C — пробуждаем кровь</p>
       </div>
 
-      <div style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
+      <div class="step" style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
         <div class="label-light" style="margin-bottom:18px;">Шаг 05</div>
         <div class="font-serif" style="font-size:22px;font-weight:400;color:var(--color-cream);margin-bottom:10px;">Дубовый круг</div>
         <p style="font-size:13px;line-height:1.65;color:var(--color-muted);margin:0;">Глубокая проработка</p>
       </div>
 
-      <div style="padding:32px 0 32px 24px;">
+      <div class="step" style="padding:32px 0 32px 24px;">
         <div class="label-light" style="margin-bottom:18px;">Шаг 06</div>
         <div class="font-serif" style="font-size:22px;font-weight:400;color:var(--color-cream);margin-bottom:10px;">Чай и тишина</div>
         <p style="font-size:13px;line-height:1.65;color:var(--color-muted);margin:0;">Иван-чай, мёд, отдых на полке</p>
@@ -370,20 +481,20 @@
 
     <div class="label" style="margin-bottom:44px;">03.5 · Дополнительно</div>
 
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;">
+    <div class="additional-header" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;">
       <h2 class="font-serif" style="font-size:clamp(44px,5.5vw,76px);font-weight:400;margin:0;line-height:1.05;color:var(--color-cream);">
         Ещё два формата<br>для гостей.
       </h2>
       <p style="font-size:12px;letter-spacing:0.5px;color:var(--color-mid);margin:0;text-align:right;">в дополнение к программам парения</p>
     </div>
 
-    <div style="border-top:1px solid var(--color-stone);display:grid;grid-template-columns:1fr 1fr;">
+    <div class="additional-grid" style="border-top:1px solid var(--color-stone);display:grid;grid-template-columns:1fr 1fr;">
 
       <!-- Детские мастер-классы -->
-      <div style="padding:48px 48px 48px 0;border-right:1px solid var(--color-stone);">
+      <div class="additional-card" style="padding:48px 48px 48px 0;border-right:1px solid var(--color-stone);">
         <div class="label" style="margin-bottom:20px;">Доп · I</div>
-        <div class="photo-placeholder" style="height:240px;margin-bottom:32px;">
-          <span>фото · доп</span>
+        <div style="height:240px;margin-bottom:32px;overflow:hidden;">
+          <img src="assets/images/IMG_20260511_081130.png" alt="Самовар с баранками" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
         </div>
         <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 8px;color:var(--color-cream);">Детские мастер-классы</h3>
         <p style="font-size:12px;letter-spacing:0.4px;color:var(--color-mid);margin:0 0 18px;">5–12 лет · 60–90 мин · до 6 детей</p>
@@ -398,10 +509,10 @@
       </div>
 
       <!-- Аренда без мастера -->
-      <div style="padding:48px 0 48px 48px;">
+      <div class="additional-card" style="padding:48px 0 48px 48px;">
         <div class="label" style="margin-bottom:20px;">Доп · II</div>
-        <div class="photo-placeholder" style="height:240px;margin-bottom:32px;">
-          <span>фото · доп</span>
+        <div style="height:240px;margin-bottom:32px;overflow:hidden;">
+          <img src="assets/images/IMG_20260511_081055.png" alt="Комната отдыха с чайным сервизом" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 8px;color:var(--color-cream);">Аренда бани без мастера</h3>
         <p style="font-size:12px;letter-spacing:0.4px;color:var(--color-mid);margin:0 0 18px;">до 6 чел. · от 3 часов · топка включена</p>
@@ -424,11 +535,11 @@
      МАСТЕР — ЦИТАТА
 ════════════════════════════════════════════ -->
 <section id="masters" style="background:var(--color-stone);padding:100px 40px;">
-  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:80px;align-items:center;">
+  <div class="masters-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:80px;align-items:center;">
 
     <!-- Портрет -->
-    <div style="background:var(--color-muted);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;">
-      <span style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-charcoal);">портрет мастера</span>
+    <div class="masters-photo" style="aspect-ratio:3/4;overflow:hidden;">
+      <img src="assets/images/IMG_20260511_081152.png" alt="Дровяная печь и берёзовые веники" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
     </div>
 
     <!-- Цитата -->
@@ -454,7 +565,7 @@
 
     <div class="label" style="margin-bottom:44px;">04 · Запись</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;">
+    <div class="booking-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;">
 
       <!-- Текст -->
       <div>
@@ -469,17 +580,17 @@
         <!-- Контакт внизу -->
         <div style="margin-top:60px;padding-top:40px;border-top:1px solid var(--color-stone);">
           <div class="label" style="margin-bottom:16px;">Или позвоните</div>
-          <a href="tel:+73452000000" class="font-serif" style="font-size:28px;color:var(--color-amber);text-decoration:none;">+7 (3452) 00-00-00</a>
+          <a href="tel:+79923193999" class="font-serif" style="font-size:28px;color:var(--color-amber);text-decoration:none;">8 (992) 319-39-99</a>
         </div>
       </div>
 
       <!-- Форма -->
-      <form id="booking-form" action="https://formsubmit.co/your@email.com" method="POST" style="display:flex;flex-direction:column;gap:16px;">
+      <form id="booking-form" action="https://formsubmit.co/bannovevgeny_1984@mail.ru" method="POST" style="display:flex;flex-direction:column;gap:16px;">
         <input type="hidden" name="_subject" value="Запись в Банное Ремесло" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
           <div>
             <label class="form-label">Имя *</label>
             <input type="text" name="name" required placeholder="Иван" class="form-input" />
@@ -501,7 +612,7 @@
           </select>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
           <div>
             <label class="form-label">Дата *</label>
             <input type="date" name="date" required class="form-input" />
@@ -541,7 +652,7 @@
 <footer id="contacts" style="background:var(--color-dark);padding:80px 40px 40px;color:var(--color-cream);">
   <div style="max-width:1280px;margin:0 auto;">
 
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:80px;">
+    <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:80px;">
 
       <!-- Бренд -->
       <div>
@@ -577,16 +688,17 @@
       <div>
         <div class="label-light" style="margin-bottom:20px;">Контакты</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
-          <span style="font-size:13px;color:var(--color-muted);">ул. Ленина 1, Тюмень</span>
-          <a href="tel:+73452000000"  style="font-size:13px;color:var(--color-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--color-cream)'" onmouseout="this.style.color='var(--color-muted)'"  >+7 (3452) 00-00-00</a>
-          <a href="mailto:hello@bania.ru" style="font-size:13px;color:var(--color-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--color-cream)'" onmouseout="this.style.color='var(--color-muted)'">hello@bania.ru</a>
+          <span style="font-size:13px;color:var(--color-muted);">СНТ Матмаский, ул. Линейная 12, уч. 382</span>
+          <a href="tel:+79923193999" style="font-size:13px;color:var(--color-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--color-cream)'" onmouseout="this.style.color='var(--color-muted)'">8 (992) 319-39-99</a>
+          <a href="mailto:bannovevgeny_1984@mail.ru" style="font-size:13px;color:var(--color-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--color-cream)'" onmouseout="this.style.color='var(--color-muted)'">bannovevgeny_1984@mail.ru</a>
+          <a href="https://vk.ru/bannovpar" target="_blank" rel="noopener" style="font-size:13px;color:var(--color-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--color-cream)'" onmouseout="this.style.color='var(--color-muted)'">ВКонтакте</a>
         </div>
       </div>
 
     </div>
 
     <!-- Нижняя строка -->
-    <div style="border-top:1px solid var(--color-charcoal);padding-top:24px;display:flex;justify-content:space-between;align-items:center;">
+    <div class="footer-bottom" style="border-top:1px solid var(--color-charcoal);padding-top:24px;display:flex;justify-content:space-between;align-items:center;">
       <p style="font-size:12px;color:var(--color-mid);margin:0;letter-spacing:0.3px;">© 2025 Банное Ремесло · Тюмень · С 2014</p>
       <p style="font-size:12px;color:var(--color-mid);margin:0;">Работаем по русской традиции</p>
     </div>
