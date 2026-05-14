@@ -136,6 +136,63 @@
     }
 
     /* ══════════════════════════════════════
+       FLIP CARDS — переворот карточек
+    ══════════════════════════════════════ */
+    .program-card {
+      perspective: 1200px;
+      cursor: pointer;
+    }
+    .card-inner {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
+    }
+    .program-card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front,
+    .card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .card-front {
+      display: flex;
+      flex-direction: column;
+    }
+    .card-front-body {
+      flex: 1;
+    }
+    .card-back {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(180deg);
+      background: var(--color-stone);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .flip-hint {
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--color-mid);
+    }
+    .back-feature {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--color-muted);
+      padding-left: 16px;
+      position: relative;
+    }
+    .back-feature::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--color-amber);
+    }
+
+    /* ══════════════════════════════════════
        АДАПТИВНОСТЬ — мобильные устройства
     ══════════════════════════════════════ */
     @media (max-width: 767px) {
@@ -369,43 +426,133 @@
 
       <!-- I — Семейная -->
       <div class="program-card" style="padding:44px 44px 44px 0;border-right:1px solid var(--color-stone);">
-        <div class="label" style="margin-bottom:24px;">Программа · I</div>
-        <div style="height:200px;margin-bottom:32px;overflow:hidden;">
-          <img src="assets/images/IMG_20260511_081124.jpg" alt="Уютная гостевая комната" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 14px;color:var(--color-cream);">Семейная</h3>
-        <p style="font-size:14px;line-height:1.75;color:var(--color-charcoal);margin:0 0 36px;">Мягкий пар, парение по очереди, чай у самовара. До&nbsp;4&nbsp;человек.</p>
-        <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--color-stone);padding-top:24px;">
-          <span class="font-serif" style="font-size:22px;color:var(--color-amber);">от 6 800 ₽</span>
-          <a href="#booking" class="arrow-link">Подробнее →</a>
+        <div class="card-inner">
+
+          <!-- Лицо -->
+          <div class="card-front">
+            <div class="card-front-body">
+              <div class="label" style="margin-bottom:24px;">Программа · I</div>
+              <div style="height:200px;margin-bottom:32px;overflow:hidden;">
+                <img src="assets/images/IMG_20260511_081124.jpg" alt="Уютная гостевая комната" style="width:100%;height:100%;object-fit:cover;" />
+              </div>
+              <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 14px;color:var(--color-cream);">Семейная</h3>
+              <p style="font-size:14px;line-height:1.75;color:var(--color-charcoal);margin:0;">Мягкий пар, парение по очереди, чай у самовара. До&nbsp;4&nbsp;человек.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--color-stone);padding-top:24px;margin-top:36px;">
+              <span class="font-serif" style="font-size:22px;color:var(--color-amber);">от 6 800 ₽</span>
+              <span class="flip-hint">Нажмите · подробнее ↺</span>
+            </div>
+          </div>
+
+          <!-- Оборот -->
+          <div class="card-back">
+            <div>
+              <div class="label" style="margin-bottom:16px;">Программа · I</div>
+              <div class="font-serif" style="font-size:28px;font-weight:400;color:var(--color-cream);margin-bottom:24px;line-height:1.1;">Семейная</div>
+              <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(192,136,90,0.3);padding-top:20px;">
+                <div class="back-feature">До 4 человек</div>
+                <div class="back-feature">90–150 минут</div>
+                <div class="back-feature">Мягкий пар 70–80°C</div>
+                <div class="back-feature">Берёзовый веник — расслабление мышц</div>
+                <div class="back-feature">Парение по очереди, отдых с чаем</div>
+                <div class="back-feature">Самовар и угощения включены</div>
+                <div class="back-feature">Подходит детям от 10 лет</div>
+              </div>
+            </div>
+            <div style="border-top:1px solid rgba(192,136,90,0.3);padding-top:24px;display:flex;justify-content:space-between;align-items:center;">
+              <span class="font-serif" style="font-size:22px;color:var(--color-amber);">от 6 800 ₽</span>
+              <a href="#booking" class="arrow-link" onclick="event.stopPropagation()">Записаться →</a>
+            </div>
+          </div>
+
         </div>
       </div>
 
       <!-- II — Женский прогрев -->
       <div class="program-card" style="padding:44px;border-right:1px solid var(--color-stone);background:var(--color-warm);">
-        <div class="label" style="margin-bottom:24px;">Программа · II</div>
-        <div style="height:200px;margin-bottom:32px;overflow:hidden;">
-          <img src="assets/images/IMG_20260511_081141.jpg" alt="Комната для женского прогрева" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 14px;color:var(--color-cream);">Женский прогрев</h3>
-        <p style="font-size:14px;line-height:1.75;color:var(--color-charcoal);margin:0 0 36px;">Тёплый комфортный режим, травяные настои, скрабы и обвертывания.</p>
-        <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--color-stone);padding-top:24px;">
-          <span class="font-serif" style="font-size:22px;color:var(--color-amber);">от 5 400 ₽</span>
-          <a href="#booking" class="arrow-link">Подробнее →</a>
+        <div class="card-inner">
+
+          <!-- Лицо -->
+          <div class="card-front">
+            <div class="card-front-body">
+              <div class="label" style="margin-bottom:24px;">Программа · II</div>
+              <div style="height:200px;margin-bottom:32px;overflow:hidden;">
+                <img src="assets/images/IMG_20260511_081141.jpg" alt="Комната для женского прогрева" style="width:100%;height:100%;object-fit:cover;" />
+              </div>
+              <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 14px;color:var(--color-cream);">Женский прогрев</h3>
+              <p style="font-size:14px;line-height:1.75;color:var(--color-charcoal);margin:0;">Тёплый комфортный режим, травяные настои, скрабы и обвертывания.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--color-stone);padding-top:24px;margin-top:36px;">
+              <span class="font-serif" style="font-size:22px;color:var(--color-amber);">от 5 400 ₽</span>
+              <span class="flip-hint">Нажмите · подробнее ↺</span>
+            </div>
+          </div>
+
+          <!-- Оборот -->
+          <div class="card-back">
+            <div>
+              <div class="label" style="margin-bottom:16px;">Программа · II</div>
+              <div class="font-serif" style="font-size:28px;font-weight:400;color:var(--color-cream);margin-bottom:24px;line-height:1.1;">Женский прогрев</div>
+              <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(192,136,90,0.3);padding-top:20px;">
+                <div class="back-feature">1–2 человека</div>
+                <div class="back-feature">90–120 минут</div>
+                <div class="back-feature">Комфортный пар 65–75°C</div>
+                <div class="back-feature">Травяные настои на камни</div>
+                <div class="back-feature">Мёдово-солевой скраб</div>
+                <div class="back-feature">Обвертывание с травами</div>
+                <div class="back-feature">Аромамасла для расслабления</div>
+              </div>
+            </div>
+            <div style="border-top:1px solid rgba(192,136,90,0.3);padding-top:24px;display:flex;justify-content:space-between;align-items:center;">
+              <span class="font-serif" style="font-size:22px;color:var(--color-amber);">от 5 400 ₽</span>
+              <a href="#booking" class="arrow-link" onclick="event.stopPropagation()">Записаться →</a>
+            </div>
+          </div>
+
         </div>
       </div>
 
       <!-- III — Спорт -->
       <div class="program-card" style="padding:44px 0 44px 44px;">
-        <div class="label" style="margin-bottom:24px;">Программа · III</div>
-        <div style="height:200px;margin-bottom:32px;overflow:hidden;">
-          <img src="assets/images/IMG_20260511_081115.jpg" alt="Купель с ледяной водой" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
-        </div>
-        <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 14px;color:var(--color-cream);">Спорт-восстановление</h3>
-        <p style="font-size:14px;line-height:1.75;color:var(--color-charcoal);margin:0 0 36px;">Контрастный режим, проработка мышц, ледяная купель.</p>
-        <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--color-stone);padding-top:24px;">
-          <span class="font-serif" style="font-size:22px;color:var(--color-amber);">от 4 900 ₽</span>
-          <a href="#booking" class="arrow-link">Подробнее →</a>
+        <div class="card-inner">
+
+          <!-- Лицо -->
+          <div class="card-front">
+            <div class="card-front-body">
+              <div class="label" style="margin-bottom:24px;">Программа · III</div>
+              <div style="height:200px;margin-bottom:32px;overflow:hidden;">
+                <img src="assets/images/IMG_20260511_081115.jpg" alt="Купель с ледяной водой" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+              </div>
+              <h3 class="font-serif" style="font-size:32px;font-weight:400;margin:0 0 14px;color:var(--color-cream);">Спорт-восстановление</h3>
+              <p style="font-size:14px;line-height:1.75;color:var(--color-charcoal);margin:0;">Контрастный режим, проработка мышц, ледяная купель.</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--color-stone);padding-top:24px;margin-top:36px;">
+              <span class="font-serif" style="font-size:22px;color:var(--color-amber);">от 4 900 ₽</span>
+              <span class="flip-hint">Нажмите · подробнее ↺</span>
+            </div>
+          </div>
+
+          <!-- Оборот -->
+          <div class="card-back">
+            <div>
+              <div class="label" style="margin-bottom:16px;">Программа · III</div>
+              <div class="font-serif" style="font-size:28px;font-weight:400;color:var(--color-cream);margin-bottom:24px;line-height:1.1;">Спорт-восстановление</div>
+              <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(192,136,90,0.3);padding-top:20px;">
+                <div class="back-feature">1–2 человека</div>
+                <div class="back-feature">120–150 минут</div>
+                <div class="back-feature">Горячий пар 85–90°C</div>
+                <div class="back-feature">Контраст с купелью 4°C</div>
+                <div class="back-feature">Дубовый и берёзовый веник</div>
+                <div class="back-feature">Глубокая проработка мышц и суставов</div>
+                <div class="back-feature">Рекомендовано после тренировок</div>
+              </div>
+            </div>
+            <div style="border-top:1px solid rgba(192,136,90,0.3);padding-top:24px;display:flex;justify-content:space-between;align-items:center;">
+              <span class="font-serif" style="font-size:22px;color:var(--color-amber);">от 4 900 ₽</span>
+              <a href="#booking" class="arrow-link" onclick="event.stopPropagation()">Записаться →</a>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -711,6 +858,14 @@
      SCRIPTS
 ════════════════════════════════════════════ -->
 <script>
+  // Переворот карточек программ
+  document.querySelectorAll('.program-card').forEach(card => {
+    card.querySelector('.card-inner').addEventListener('click', function(e) {
+      if (e.target.closest('a')) return;
+      card.classList.toggle('flipped');
+    });
+  });
+
   // Мобильное меню
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
