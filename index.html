@@ -247,7 +247,7 @@
       }
       .program-card:last-child { border-bottom: none !important; }
 
-      /* На мобиле — убираем 3D-переворот, используем прозрачность */
+      /* На мобиле — убираем 3D-переворот и GPU-оптимизации, используем прозрачность */
       .card-inner { perspective: none !important; }
       .card-front, .card-back {
         -webkit-backface-visibility: visible !important;
@@ -255,6 +255,12 @@
         -webkit-transform: none !important;
         transform: none !important;
         transition: opacity 0.35s ease !important;
+      }
+      /* Снимаем GPU-ускорение с изображений — на Android оно перегружает память */
+      .card-front img {
+        -webkit-transform: none !important;
+        transform: none !important;
+        will-change: auto !important;
       }
       .card-back { opacity: 0; pointer-events: none; }
       .program-card.flipped .card-front { opacity: 0; pointer-events: none; }
