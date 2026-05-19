@@ -136,61 +136,43 @@
     }
 
     /* ══════════════════════════════════════
-       FLIP CARDS — переворот карточек
-       (без preserve-3d — надёжно на iOS)
+       КАРТОЧКИ ПРОГРАММ — переключение через opacity
     ══════════════════════════════════════ */
     .program-card {
       cursor: pointer;
       position: relative;
     }
-    /* card-inner — только контейнер перспективы, без 3d-контекста */
     .card-inner {
       position: relative;
       height: 100%;
-      -webkit-perspective: 1200px;
-      perspective: 1200px;
-    }
-    /* Каждая сторона анимируется независимо */
-    .card-front,
-    .card-back {
-      -webkit-transition: -webkit-transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
     }
     .card-front {
       display: flex;
       flex-direction: column;
-      -webkit-transform: rotateY(0deg);
-      transform: rotateY(0deg);
-    }
-    .program-card.flipped .card-front {
-      -webkit-transform: rotateY(-180deg);
-      transform: rotateY(-180deg);
-    }
-    .program-card.flipped .card-back {
-      -webkit-transform: rotateY(0deg);
-      transform: rotateY(0deg);
+      opacity: 1;
+      transition: opacity 0.35s ease;
     }
     .card-front-body {
       flex: 1;
     }
-    .card-front img {
-      /* Принудительный GPU-слой — Android Chrome не рендерит img
-         внутри backface-visibility:hidden без явного compositing */
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      will-change: transform;
-    }
     .card-back {
       position: absolute;
       inset: 0;
-      -webkit-transform: rotateY(180deg);
-      transform: rotateY(180deg);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
       background: var(--color-stone);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+    .program-card.flipped .card-front {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .program-card.flipped .card-back {
+      opacity: 1;
+      pointer-events: auto;
     }
     .flip-hint {
       font-size: 10px;
@@ -246,34 +228,6 @@
         border-bottom: 1px solid var(--color-stone) !important;
       }
       .program-card:last-child { border-bottom: none !important; }
-
-      /* Мобильный flip: убираем 3D полностью, показываем/скрываем через display */
-      .card-inner { perspective: none !important; }
-      .card-front {
-        -webkit-transform: none !important;
-        transform: none !important;
-        -webkit-backface-visibility: visible !important;
-        backface-visibility: visible !important;
-        transition: none !important;
-        display: block !important;
-      }
-      .card-back {
-        -webkit-transform: none !important;
-        transform: none !important;
-        -webkit-backface-visibility: visible !important;
-        backface-visibility: visible !important;
-        transition: none !important;
-        position: relative !important;
-        inset: auto !important;
-        display: none !important;
-      }
-      .card-front img {
-        -webkit-transform: none !important;
-        transform: none !important;
-        will-change: auto !important;
-      }
-      .program-card.flipped .card-front { display: none !important; }
-      .program-card.flipped .card-back { display: block !important; }
 
       /* Заголовки h2 во всех секциях */
       #programs h2,
