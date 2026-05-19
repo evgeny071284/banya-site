@@ -247,6 +247,34 @@
       }
       .program-card:last-child { border-bottom: none !important; }
 
+      /* Мобильный flip: убираем 3D полностью, показываем/скрываем через display */
+      .card-inner { perspective: none !important; }
+      .card-front {
+        -webkit-transform: none !important;
+        transform: none !important;
+        -webkit-backface-visibility: visible !important;
+        backface-visibility: visible !important;
+        transition: none !important;
+        display: block !important;
+      }
+      .card-back {
+        -webkit-transform: none !important;
+        transform: none !important;
+        -webkit-backface-visibility: visible !important;
+        backface-visibility: visible !important;
+        transition: none !important;
+        position: relative !important;
+        inset: auto !important;
+        display: none !important;
+      }
+      .card-front img {
+        -webkit-transform: none !important;
+        transform: none !important;
+        will-change: auto !important;
+      }
+      .program-card.flipped .card-front { display: none !important; }
+      .program-card.flipped .card-back { display: block !important; }
+
       /* Заголовки h2 во всех секциях */
       #programs h2,
       #about h2,
