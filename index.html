@@ -210,7 +210,8 @@
       .hero-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
       #hero h1 { font-size: clamp(38px, 9vw, 56px) !important; margin-bottom: 24px !important; }
       .hero-stats { gap: 24px !important; flex-wrap: wrap !important; }
-      .hero-image { margin: 0 !important; height: 360px !important; }
+      .hero-image { margin: 0 !important; height: auto !important; overflow: visible !important; }
+      .hero-image img { height: auto !important; object-fit: initial !important; }
 
       /* Программы */
       #programs { padding: 64px 20px !important; }
