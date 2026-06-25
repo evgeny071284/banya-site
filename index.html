@@ -598,7 +598,7 @@
       <div class="step" style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
         <div class="label-light" style="margin-bottom:18px;">Шаг 03</div>
         <div class="font-serif" style="font-size:22px;font-weight:400;color:var(--color-cream);margin-bottom:10px;">Первый веник</div>
-        <p style="font-size:13px;line-height:1.65;color:var(--color-muted);margin:0;">Берёзовый — для расслабления мышц</p>
+        <p style="font-size:13px;line-height:1.65;color:var(--color-muted);margin:0;">Кленовый — для расслабления мышц</p>
       </div>
 
       <div class="step" style="padding:32px 24px;border-right:1px solid var(--color-charcoal);">
@@ -830,7 +830,7 @@
       <div>
         <div class="label-light" style="margin-bottom:20px;">Сертификаты</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="#booking" style="font-size:13px;color:var(--color-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--color-cream)'" onmouseout="this.style.color='var(--color-muted)'">Купить сертификат</a>
+          <a href="#" onclick="event.preventDefault();openCertModal();" style="font-size:13px;color:var(--color-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--color-cream)'" onmouseout="this.style.color='var(--color-muted)'">Купить сертификат</a>
           <a href="#booking" style="font-size:13px;color:var(--color-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--color-cream)'" onmouseout="this.style.color='var(--color-muted)'">Активировать</a>
         </div>
       </div>
@@ -857,6 +857,69 @@
   </div>
 </footer>
 
+
+<!-- ═══════════════════════════════════════════
+     МОДАЛ СЕРТИФИКАТА
+════════════════════════════════════════════ -->
+<div id="cert-modal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.78);overflow-y:auto;padding:40px 20px;">
+  <div style="max-width:620px;margin:0 auto;position:relative;">
+
+    <!-- Закрыть -->
+    <button onclick="closeCertModal()" style="position:absolute;top:-40px;right:0;background:none;border:none;color:#fff;font-size:32px;line-height:1;cursor:pointer;">×</button>
+
+    <!-- Сертификат -->
+    <div style="background:#C2BA9C;padding:48px 40px 36px;text-align:center;font-family:'Georgia',serif;color:#1a1a1a;">
+      <p style="font-size:13px;letter-spacing:2px;margin:0 0 12px;font-family:sans-serif;">Банный комплекс « Семейные традиции »</p>
+      <div style="width:60px;height:1px;background:#6b6045;margin:0 auto 32px;"></div>
+
+      <h2 style="font-size:clamp(30px,5vw,42px);font-weight:400;margin:0 0 28px;line-height:1.2;">Подарочный сертификат</h2>
+
+      <div style="font-size:clamp(20px,3.5vw,28px);display:flex;align-items:baseline;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
+        <span>На сумму</span>
+        <input id="cert-sum" type="number" min="1" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" style="width:170px;border:none;border-bottom:2px solid #1a1a1a;background:transparent;font-size:inherit;font-family:'Georgia',serif;text-align:center;outline:none;color:#1a1a1a;" />
+        <span>рублей</span>
+      </div>
+      <p style="font-size:12px;letter-spacing:1.5px;color:#6b6045;margin:0 0 32px;font-family:sans-serif;">бронирование от 2-х часов</p>
+
+      <div style="width:100%;height:1px;background:#9a9070;margin-bottom:28px;"></div>
+
+      <p style="font-size:16px;margin:0 0 32px;">📍 СНТ «Матмасские дачи», ул.12-Линейная, д.382</p>
+
+      <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
+        <div>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=tel:+79129999210" alt="QR Ирина" style="width:110px;height:110px;display:block;margin:0 auto;" />
+          <p style="font-size:12px;margin:10px 0 0;font-family:sans-serif;">8-912-999-92-10 Ирина</p>
+        </div>
+        <div>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=tel:+79923193999" alt="QR Евгений" style="width:110px;height:110px;display:block;margin:0 auto;" />
+          <p style="font-size:12px;margin:10px 0 0;font-family:sans-serif;">8-992-319-39-99 Евгений</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Форма заказа -->
+    <form id="cert-form" action="https://formsubmit.co/bannovevgeny_1984@mail.ru" method="POST" style="background:var(--color-warm);padding:28px 40px;display:flex;flex-direction:column;gap:14px;">
+      <input type="hidden" name="_subject" value="Заказ подарочного сертификата" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" id="cert-sum-hidden" name="Сумма сертификата" value="" />
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div>
+          <label class="form-label">Ваше имя *</label>
+          <input type="text" name="Имя" required placeholder="Иван" class="form-input" />
+        </div>
+        <div>
+          <label class="form-label">Телефон *</label>
+          <input type="tel" name="Телефон" required placeholder="+7 (000) 000-00-00" class="form-input" />
+        </div>
+      </div>
+
+      <button type="submit" style="background:var(--color-amber);color:var(--color-dark);border:none;padding:16px 32px;font-size:13px;letter-spacing:1.5px;cursor:pointer;font-family:inherit;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">ЗАКАЗАТЬ СЕРТИФИКАТ →</button>
+    </form>
+
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════
      SCRIPTS
@@ -896,6 +959,22 @@
   }
   handleResize();
   window.addEventListener('resize', handleResize);
+
+  // Модал сертификата
+  function openCertModal() {
+    document.getElementById('cert-modal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCertModal() {
+    document.getElementById('cert-modal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('cert-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeCertModal();
+  });
+  document.getElementById('cert-form').addEventListener('submit', function() {
+    document.getElementById('cert-sum-hidden').value = document.getElementById('cert-sum').value + ' рублей';
+  });
 </script>
 
 </body>
